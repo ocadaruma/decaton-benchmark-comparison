@@ -1,0 +1,21 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:5.1.0'
+    }
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'java'
+
+dependencies {
+    implementation "com.linecorp.decaton:decaton-benchmark-api:0.0.42-SNAPSHOT"
+    implementation "org.apache.kafka:kafka-streams:2.4.1"
+}
