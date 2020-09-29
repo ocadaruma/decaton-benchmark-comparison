@@ -34,6 +34,8 @@ public class KafkaStreamsRunner implements Runner {
         Properties props = new Properties();
         props.setProperty(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, config.bootstrapServers());
         props.setProperty(StreamsConfig.APPLICATION_ID_CONFIG, "decaton-benchmark-kafkastreams");
+        // decaton-benchmark's partition count is 3
+        props.setProperty(StreamsConfig.NUM_STREAM_THREADS_CONFIG, "3");
         config.parameters().forEach(props::setProperty);
 
         streams = new KafkaStreams(builder.build(), props);

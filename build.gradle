@@ -12,10 +12,16 @@ repositories {
     mavenLocal()
 }
 
-apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'java'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+group = 'com.mayreh'
+version = '0.1'
+sourceCompatibility = '1.8'
 
 dependencies {
-    implementation "com.linecorp.decaton:decaton-benchmark-api:0.0.42-SNAPSHOT"
-    implementation "org.apache.kafka:kafka-streams:2.4.1"
+    implementation 'com.linecorp.decaton:decaton-benchmark-api:0.0.42-SNAPSHOT'
+
+    implementation 'org.apache.kafka:kafka-streams:2.4.1'
+    implementation 'org.springframework.kafka:spring-kafka:2.4.9.RELEASE'
 }
