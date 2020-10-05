@@ -16,7 +16,7 @@ import org.springframework.kafka.listener.ContainerProperties;
 import org.springframework.kafka.listener.MessageListener;
 import org.springframework.kafka.listener.MessageListenerContainer;
 
-import com.linecorp.decaton.benchmark.ProcessCallback;
+import com.linecorp.decaton.benchmark.Recording;
 import com.linecorp.decaton.benchmark.ResourceTracker;
 import com.linecorp.decaton.benchmark.Runner;
 import com.linecorp.decaton.benchmark.Task;
@@ -25,7 +25,7 @@ public class SpringKafkaRunner implements Runner {
     private MessageListenerContainer container;
 
     @Override
-    public void init(Config config, ProcessCallback callback, ResourceTracker resourceTracker)
+    public void init(Config config, Recording recording, ResourceTracker resourceTracker)
             throws InterruptedException {
         Map<String, Object> props = new HashMap<>();
         props.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, config.bootstrapServers());
@@ -39,7 +39,7 @@ public class SpringKafkaRunner implements Runner {
         DefaultKafkaConsumerFactory<String, Task> consumerFactory =
                 new DefaultKafkaConsumerFactory<>(props, Serdes.String().deserializer(), config.taskDeserializer());
 
-        MessageListener<String, Task> listener = record -> callback.process(record.value());
+        MessageListener<String, Task> listener = record -> recording.process(record.value());
         ContainerProperties containerProps = new ContainerProperties(config.topic());
         containerProps.setMessageListener(listener);
         containerProps.setConsumerRebalanceListener(new ConsumerRebalanceListener() {
