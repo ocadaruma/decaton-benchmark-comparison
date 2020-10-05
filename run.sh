@@ -18,9 +18,9 @@ function num_tasks() {
     if [ $latency -eq 0 ]; then
         echo 1000000
     elif [ $latency -le 10 ]; then
-        echo 100000
-    else
         echo 10000
+    else
+        echo 1000
     fi
 }
 
@@ -57,6 +57,7 @@ function run_benchmark() {
       --format=json \
       --file-name-only \
       --runner $runner \
+      --profile \
       --tasks $tasks \
       --warmup $NUM_WARMUPS \
       --simulate-latency $latency ${params[@]} | tee $SCRIPT_DIR/result.$framework.${latency}ms.json
