@@ -9,19 +9,18 @@ fi
 
 SCRIPT_DIR="$(cd $(dirname $0); pwd)"
 NUM_WARMUPS=10000000
-FRAMEWORKS=(kafka-streams spring-kafka decaton decaton32)
-LATENCIES=(0 10 50 100)
+FRAMEWORKS=(kafka-streams spring-kafka decaton decaton10)
+LATENCIES=(10)
 
 function num_tasks() {
-    latency="$1"
-
-    if [ $latency -eq 0 ]; then
-        echo 1000000
-    elif [ $latency -le 10 ]; then
-        echo 10000
-    else
-        echo 1000
+    framework="$1"
+    latency="$2"
+    if [ $framework = "decaton10" ]; then
+        echo 100000
+        return
     fi
+
+    echo "100000 / $latency" | bc
 }
 
 function run_benchmark() {
@@ -41,14 +40,14 @@ function run_benchmark() {
             runner="com.linecorp.decaton.benchmark.DecatonRunner"
             params+=("--param=decaton.max.pending.records=10000")
             ;;
-        decaton32)
+        decaton10)
             runner="com.linecorp.decaton.benchmark.DecatonRunner"
             params+=("--param=decaton.max.pending.records=10000")
-            params+=("--param=decaton.partition.concurrency=32")
+            params+=("--param=decaton.partition.concurrency=10")
             ;;
     esac
 
-    tasks=$(num_tasks $latency)
+    tasks=$(num_tasks $framework $latency)
 
     echo "Running benchmark: $framework with $tasks tasks, $latency ms latency"
     ./debm.sh \
