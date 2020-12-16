@@ -19,8 +19,10 @@ group = 'com.mayreh'
 version = '0.1'
 
 dependencies {
-    implementation 'com.linecorp.decaton:decaton-benchmark:0.0.42-SNAPSHOT'
+    implementation 'com.linecorp.decaton:decaton-benchmark:0.0.46-SNAPSHOT'
 
-    implementation 'org.apache.kafka:kafka-streams:2.4.1'
+    implementation 'org.apache.kafka:kafka-streams:2.5.0'
+    implementation 'org.apache.kafka:kafka-clients:2.5.0'
     implementation 'org.springframework.kafka:spring-kafka:2.4.9.RELEASE'
+    implementation 'io.confluent.parallelconsumer:parallel-consumer-core:0.3.0.0'
 }
