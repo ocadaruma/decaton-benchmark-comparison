@@ -78,7 +78,7 @@ function run_benchmark() {
 
     name="$framework-${latency}ms"
     echo "Running benchmark: $framework with $tasks tasks, $latency ms latency"
-    sudo ./debm.sh \
+    sudo -E ./debm.sh \
       --runs 3 \
       --title "$name" \
       --format=json \
