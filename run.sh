@@ -2,11 +2,12 @@
 
 set -e
 
-if [ $# -ne 1 ]; then
-    echo "Usage: ./run.sh /path/to/decaton_repo"
+if [ $# -ne 2 ]; then
+    echo "Usage: ./run.sh <decaton repo dir> <result dir>"
     exit 1
 fi
 
+RESULT_DIR="$2"
 SCRIPT_DIR="$(cd $(dirname $0); pwd)"
 NUM_WARMUPS=10000000
 FRAMEWORKS=(kafka-streams spring-kafka pconsumer decaton)
@@ -16,7 +17,7 @@ function num_tasks() {
     framework="$1"
     latency="$2"
 
-    if [ $latency eq 0 ]; then
+    if [ $latency -eq 0 ]; then
         echo 1000000
         return
     fi
@@ -59,18 +60,21 @@ function run_benchmark() {
 
     tasks=$(num_tasks $framework $latency)
 
+    name="$framework-${latency}ms"
     echo "Running benchmark: $framework with $tasks tasks, $latency ms latency"
     ./debm.sh \
       --runs 3 \
-      --title "$framework" \
+      --title "$name" \
       --format=json \
       --file-name-only \
       --runner $runner \
       --profile \
+      --profiler-opts="-f $RESULT_DIR/$name-profile.svg" \
       --taskstats \
+      --taskstats-output="$RESULT_DIR/$name-taskstats.txt" \
       --tasks $tasks \
       --warmup $NUM_WARMUPS \
-      --simulate-latency $latency ${params[@]} | tee $SCRIPT_DIR/result.$framework.${latency}ms.json
+      --simulate-latency $latency ${params[@]} | tee $RESULT_DIR/$name.json
 }
 
 decaton_dir="$1"
