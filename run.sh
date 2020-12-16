@@ -9,12 +9,18 @@ fi
 
 SCRIPT_DIR="$(cd $(dirname $0); pwd)"
 NUM_WARMUPS=10000000
-FRAMEWORKS=(kafka-streams spring-kafka decaton decaton10)
-LATENCIES=(10)
+FRAMEWORKS=(kafka-streams spring-kafka pconsumer decaton)
+LATENCIES=(0)
 
 function num_tasks() {
     framework="$1"
     latency="$2"
+
+    if [ $latency eq 0 ]; then
+        echo 1000000
+        return
+    fi
+
     if [ $framework = "decaton10" ]; then
         echo 100000
         return
@@ -40,6 +46,10 @@ function run_benchmark() {
             runner="com.linecorp.decaton.benchmark.DecatonRunner"
             params+=("--param=decaton.max.pending.records=10000")
             ;;
+        pconsumer)
+            runner="com.mayreh.ParallelConsumerRunner"
+            params+=("--param=concurrency=3")
+            ;;
         decaton10)
             runner="com.linecorp.decaton.benchmark.DecatonRunner"
             params+=("--param=decaton.max.pending.records=10000")
@@ -57,6 +67,7 @@ function run_benchmark() {
       --file-name-only \
       --runner $runner \
       --profile \
+      --taskstats \
       --tasks $tasks \
       --warmup $NUM_WARMUPS \
       --simulate-latency $latency ${params[@]} | tee $SCRIPT_DIR/result.$framework.${latency}ms.json
