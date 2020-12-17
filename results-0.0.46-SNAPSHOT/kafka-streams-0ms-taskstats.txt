@@ -1,0 +1,22 @@
+                                 Task                                 |  utime  | stime  |    rss     |     vmem     |   read    |  write  |  d:cpu  | d:bio  | d:swap | d:reclaim 
+ 49922 Thread 1 - main                                                |  756000 | 120000 |  156480849 |  20652540556 |  34380800 |    1024 |  100519 |      0 |      0 |         0 
+ 49989 Thread 2 - Reference Handler                                   |    7000 |      0 |    1836863 |    170626964 |         0 |       0 |    9239 |      0 |      0 |         0 
+ 49990 Thread 3 - Finalizer                                           |    7000 |   1000 |    1970039 |    193177644 |     13312 |       0 |       0 |      0 |      0 |         0 
+ 49991 Thread 4 - Surrogate Locker Thread (Concurrent GC)             |       0 |      0 |          0 |            0 |         0 |       0 |       0 |      0 |      0 |         0 
+ 49992 Thread 5 - Signal Dispatcher                                   |       0 |      0 |          0 |            0 |         0 |       0 |       0 |      0 |      0 |         0 
+ 50011 Thread 23 - RMI Scheduler(0)                                   |       0 |      0 |          0 |            0 |      2048 |       0 |       0 |      0 |      0 |         0 
+ 50012 Thread 24 - RMI RenewClean-[10.233.72.74:46286]                |       0 |      0 |          0 |            0 |      1024 |       0 |       0 |      0 |      0 |         0 
+ 50013 Thread 25 - GC Daemon                                          |       0 |   1000 |     186687 |     24098800 |         0 |       0 |   26581 |      0 |      0 |         0 
+ 50014 Thread 26 - kafka-admin-client-thr...d-8536-351f9a639cd6-admin |  214000 |   7000 |   51610491 |   5395426772 |   1429504 |       0 |  266162 |      0 |      0 |         0 
+ 50015 Thread 27 - kafka-producer-network...6-StreamThread-1-producer |   20000 |   2000 |    5574367 |    541033031 |     14336 |       0 |   73134 |      0 |      0 |         0 
+ 50016 Thread 29 - kafka-producer-network...6-StreamThread-2-producer |   18000 |   1000 |    4857292 |    467605456 |     20480 |       0 |   21022 |      0 |      0 |         0 
+ 50017 Thread 31 - kafka-producer-network...6-StreamThread-3-producer |   58000 |   3000 |   15633187 |   1502064882 |     64512 |       0 |  278004 |      0 |      0 |         0 
+ 50018 Thread 28 - decaton-benchmark-kafk...1f9a639cd6-StreamThread-1 | 6952000 | 670000 | 6865698138 | 189326157449 | 209012736 | 2443264 | 2683153 | 138424 |      0 |         0 
+ 50019 Thread 30 - decaton-benchmark-kafk...1f9a639cd6-StreamThread-2 | 6876000 | 636000 | 6748784806 | 186597536097 | 209406976 | 2478080 | 6072773 | 357890 |      0 |         0 
+ 50020 Thread 32 - decaton-benchmark-kafk...1f9a639cd6-StreamThread-3 | 7103000 | 622000 | 6944858731 | 191884677449 | 211258368 | 2463744 | 1716260 |  88749 |      0 |         0 
+ 50021 Thread 33 - decaton-benchmark-kafk...51f9a639cd6-CleanupThread |    1000 |      0 |     232914 |     24624867 |         0 |       0 |       0 |      0 |      0 |         0 
+ 50024 Thread 34 - kafka-coordinator-hear...on-benchmark-kafkastreams |   13000 |   9000 |   19663367 |    546167335 |    949248 |    2048 |       0 |  15544 |      0 |         0 
+ 50025 Thread 35 - kafka-coordinator-hear...on-benchmark-kafkastreams |   15000 |   8000 |   20783847 |    571306706 |    930816 |    2048 |   10988 |  13418 |      0 |         0 
+ 50026 Thread 36 - kafka-coordinator-hear...on-benchmark-kafkastreams |   14000 |   5000 |   16981757 |    471689699 |    913408 |    2048 |       0 |  10127 |      0 |         0 
+ 50098 Thread 37 - process reaper                                     |    1000 |      0 |     989097 |     24982625 |         0 |       0 |       0 |      0 |      0 |         0 
+ 50103 Thread 38 - Attach Listener                                    |  424000 |  65000 |  478331702 |  12210450952 |   5121024 |  109568 |   40048 |      0 |      0 |         0 

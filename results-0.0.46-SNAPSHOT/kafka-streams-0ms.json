@@ -1,0 +1,32 @@
+{
+  "performance" : {
+    "totalTasks" : 1000000,
+    "executionTime" : 1205666666,
+    "throughput" : 831841.8692505587,
+    "deliveryLatency" : {
+      "avg" : 1000000,
+      "max" : 12333333
+    }
+  },
+  "resource" : {
+    "threads" : 0,
+    "totalCpuTimeNs" : 0,
+    "totalAllocatedBytes" : 0
+  },
+  "jvmStats" : {
+    "gcStats" : {
+      "G1 Young Generation" : {
+        "count" : 2,
+        "time" : 7
+      },
+      "G1 Old Generation" : {
+        "count" : 0,
+        "time" : 0
+      }
+    }
+  },
+  "extraInfo" : {
+    "profilerOutput" : "kafka-streams-0ms-profile.svg",
+    "taskstatsOutput" : "kafka-streams-0ms-taskstats.txt"
+  }
+}

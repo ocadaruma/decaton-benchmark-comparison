@@ -1,0 +1,32 @@
+{
+  "performance" : {
+    "totalTasks" : 1000000,
+    "executionTime" : 1171666666,
+    "throughput" : 860022.011619991,
+    "deliveryLatency" : {
+      "avg" : 1000000,
+      "max" : 12666666
+    }
+  },
+  "resource" : {
+    "threads" : 0,
+    "totalCpuTimeNs" : 0,
+    "totalAllocatedBytes" : 0
+  },
+  "jvmStats" : {
+    "gcStats" : {
+      "G1 Young Generation" : {
+        "count" : 2,
+        "time" : 14
+      },
+      "G1 Old Generation" : {
+        "count" : 0,
+        "time" : 0
+      }
+    }
+  },
+  "extraInfo" : {
+    "profilerOutput" : "spring-kafka-0ms-profile.svg",
+    "taskstatsOutput" : "spring-kafka-0ms-taskstats.txt"
+  }
+}
