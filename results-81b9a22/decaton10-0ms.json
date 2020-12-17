@@ -1,0 +1,32 @@
+{
+  "performance" : {
+    "totalTasks" : 1000000,
+    "executionTime" : 3603333333,
+    "throughput" : 278286.91524281446,
+    "deliveryLatency" : {
+      "avg" : 1142000000,
+      "max" : 2413333333
+    }
+  },
+  "resource" : {
+    "threads" : 31,
+    "totalCpuTimeNs" : 130744924976,
+    "totalAllocatedBytes" : 43609645353
+  },
+  "jvmStats" : {
+    "gcStats" : {
+      "G1 Young Generation" : {
+        "count" : 6,
+        "time" : 25
+      },
+      "G1 Old Generation" : {
+        "count" : 0,
+        "time" : 0
+      }
+    }
+  },
+  "extraInfo" : {
+    "profilerOutput" : "decaton10-0ms-profile.svg",
+    "taskstatsOutput" : "decaton10-0ms-taskstats.txt"
+  }
+}

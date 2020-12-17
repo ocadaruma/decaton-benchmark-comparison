@@ -1,0 +1,32 @@
+{
+  "performance" : {
+    "totalTasks" : 1000000,
+    "executionTime" : 30599333333,
+    "throughput" : 32815.167949495284,
+    "deliveryLatency" : {
+      "avg" : 14725000000,
+      "max" : 29388000000
+    }
+  },
+  "resource" : {
+    "threads" : 0,
+    "totalCpuTimeNs" : 0,
+    "totalAllocatedBytes" : 0
+  },
+  "jvmStats" : {
+    "gcStats" : {
+      "G1 Young Generation" : {
+        "count" : 4,
+        "time" : 840
+      },
+      "G1 Old Generation" : {
+        "count" : 0,
+        "time" : 0
+      }
+    }
+  },
+  "extraInfo" : {
+    "profilerOutput" : "pconsumer-0ms-profile.svg",
+    "taskstatsOutput" : "pconsumer-0ms-taskstats.txt"
+  }
+}
